@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "email": "jovenbandagosa@gmail.com",
+      "password": "$2a$10$aj6PFTD/7wT8/XHguD3hnei9rvRc.W8ErMVrGzFjNSCxknEjzZpsm",
+      "name": "jovenbandagosa@gmail.com",
+      "hasAgreed": "false",
+      "errors": [],
+      "isLoading": false,
+      "hasLoggedIn": false,
+      "id": 1
+    },
+    {
+      "email": "JohnDoe@gmail.com",
+      "password": "$2a$10$B485RE18hx/Um9SYwBz0aOc.uIdB/bfnVmeYkp2gjLqF10HHa42xO",
+      "name": "JohnDoe@gmail.com",
+      "hasAgreed": "false",
+      "hasLoggedIn": false,
+      "errors": [],
+      "isLoading": false,
+      "id": 2
+    }
+  ]
+}
