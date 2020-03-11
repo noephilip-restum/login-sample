@@ -20,7 +20,7 @@ export default function Validate(value, type) {
 			error.password = 'Password needs to be more than 10 characters';
 		}
 
-		get('/users').then(res =>
+		get('/api/users').then(res =>
 			res.data.map(user => {
 				if (user.email === value.email) {
 					error.email = 'Email is already exist';

@@ -1,11 +1,10 @@
 export const initialState = {
 	formState: {
-		email: '',
 		name: '',
-		password: ''
+		email: '',
+		password: '',
+		has_agreed: false
 	},
-	hasAgreed: false,
-	hasLoggedIn: false,
 	errors: [],
 	isLoading: false
 };
@@ -15,7 +14,7 @@ export const reducer = (state = initialState, action) => {
 		case 'FIELD': {
 			return {
 				...state,
-				[action.fieldName]: action.payload
+				formState: { ...state.formState, [action.fieldName]: action.payload }
 			};
 		}
 		case 'VALIDATE': {
@@ -23,12 +22,6 @@ export const reducer = (state = initialState, action) => {
 				...state,
 				errors: action.payload.errors,
 				isLoading: action.payload.isLoading
-			};
-		}
-		case 'LOGIN': {
-			return {
-				...state,
-				hasLoggedIn: action.payload
 			};
 		}
 		case 'RESET': {

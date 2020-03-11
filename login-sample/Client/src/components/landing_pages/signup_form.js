@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../../contexts';
 import Login from './login';
+import { NotificationContainer } from 'react-notifications';
 
 export default function SignUpForm({ history }) {
 	const { stateSignIn, dispatchSignIn, logInFunction } = useContext(Context);
@@ -10,6 +11,7 @@ export default function SignUpForm({ history }) {
 
 	return (
 		<Login>
+			<NotificationContainer />
 			<div className="FormCenter">
 				<form
 					className="FormFields"

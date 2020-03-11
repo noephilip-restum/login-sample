@@ -2,7 +2,7 @@ import React, { useReducer, createContext } from 'react';
 
 //REDUCER
 import * as AccountReducer from './reducers/account_reducers';
-import * as SignInReducer from './reducers/signin_reducer';
+import * as SignInReducer from './reducers/login_reducer';
 
 //FUNCTIONS
 import * as logInFunction from './functions/login_functions';

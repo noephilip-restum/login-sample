@@ -19,6 +19,20 @@
       "errors": [],
       "isLoading": false,
       "id": 2
+    },
+    {
+      "email": "clark.amor@gmail.com",
+      "password": "$2a$10$jZ.dCY1dKAxHGiatoYnARO0jrdVqFRuynI4jxhcczxSmhmNrX3lNC",
+      "name": "Clark Amor",
+      "hasAgreed": "false",
+      "hasLoggedIn": false,
+      "errors": {
+        "name": "Name is required",
+        "email": "Email Address is required",
+        "password": "Password is required"
+      },
+      "isLoading": false,
+      "id": 3
     }
   ]
 }

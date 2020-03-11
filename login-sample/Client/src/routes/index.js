@@ -12,7 +12,7 @@ export default function Routes() {
 		<BrowserRouter>
 			<Switch>
 				<PublicRoutes exact path="/" component={SignUpForm} />
-				<PublicRoutes exact restr path="/sign-in" component={SignInForm} />
+				<PublicRoutes exact path="/sign-in" component={SignInForm} />
 				<PrivateRoutes exact path="/main-page" component={MainPages} />
 				<Route component={NotFound} />
 			</Switch>

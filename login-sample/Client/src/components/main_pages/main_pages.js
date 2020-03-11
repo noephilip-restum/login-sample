@@ -4,12 +4,11 @@ import {
 	NotificationManager
 } from 'react-notifications';
 
-// import { Context } from '../../contexts';
-// import { post } from '../../utils/api';
+import Templates from '../templates';
+import Chat from '../chat/chat';
 
-export default function MainPages({ history }) {
+export default function MainPages() {
 	const notification = localStorage.getItem('notification');
-	// const { accountState } = useContext(Context);
 
 	useEffect(() => {
 		if (notification) {
@@ -20,7 +19,9 @@ export default function MainPages({ history }) {
 
 	return (
 		<>
-			{/* <h1>Hello {accountState.db_profile.name}!</h1> */}
+			<Templates>
+				<Chat />
+			</Templates>
 			<NotificationContainer />
 		</>
 	);

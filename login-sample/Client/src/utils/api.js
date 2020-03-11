@@ -1,7 +1,8 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
+const token = Cookies.get('token');
 const baseUrl = 'http://localhost:4000';
-let token = localStorage.getItem('token');
 
 const req = {
 	headers: {
@@ -10,32 +11,20 @@ const req = {
 	}
 };
 
-const get = (endpoint, data) => {
-	return axios.get(`${baseUrl}${endpoint}`, data, req);
+const get = async endpoint => {
+	return await axios.get(`${baseUrl}${endpoint}`, req);
 };
 
-const post = (endpoint, data) => {
-	return axios.post(
-		`${baseUrl}${endpoint}`,
-		data,
-		endpoint !== '/login' ? req : null
-	);
+const post = async (endpoint, data) => {
+	return await axios.post(`${baseUrl}${endpoint}`, data, req);
 };
 
-const patch = (endpoint, data) => {
-	return axios.patch(
-		`${baseUrl}${endpoint}`,
-		data,
-		endpoint !== '/login' ? req : null
-	);
+const patch = async (endpoint, data) => {
+	return await axios.patch(`${baseUrl}${endpoint}`, data, req);
 };
 
-const remove = (endpoint, data) => {
-	return axios.delete(
-		`${baseUrl}${endpoint}`,
-		data,
-		endpoint !== '/login' ? req : null
-	);
+const remove = async (endpoint, data) => {
+	return await axios.delete(`${baseUrl}${endpoint}`, data, req);
 };
 
 export { get, patch, post, remove };
