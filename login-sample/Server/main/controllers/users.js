@@ -30,8 +30,8 @@ const createUsers = async (req, res) => {
 					has_agreed
 				})
 				.then(user => {
-					const token = jwt.sign({ userId: user.id }, process.env.SECRET_KEY);
 					delete user.password;
+					const token = jwt.sign({ user }, process.env.SECRET_KEY);
 					res.status(201).json({ ...user, token });
 				});
 		}
@@ -55,8 +55,8 @@ const loginUsers = async (req, res) => {
 		if (user) {
 			const isValid = await argon2.verify(user.password, password);
 			if (isValid) {
-				const token = jwt.sign({ userId: user.id }, process.env.SECRET_KEY);
 				delete user.password;
+				const token = jwt.sign({ user }, process.env.SECRET_KEY);
 				res.status(200).json({ ...user, token });
 			} else {
 				throw new Error('Invalid password');

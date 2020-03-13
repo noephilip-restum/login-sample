@@ -1,12 +1,19 @@
 const express = require('express');
+const cors = require('cors');
+const http = require('http');
+const socketio = require('socket.io');
+require('dotenv').config();
+
 const database = require('./db');
 const routes = require('./routes');
-const cors = require('cors');
 
-require('dotenv').config();
+//SOCKETS
+const { hasLoggedIn } = require('./sockets/hasLoggedIn');
 
 database.then(db => {
 	const app = express();
+	const server = http.createServer(app);
+	const io = socketio(server);
 
 	app.use(cors());
 	app.set('db', db);
@@ -14,6 +21,10 @@ database.then(db => {
 
 	app.use(routes);
 
+	io.on('connect', socket => {
+		hasLoggedIn(socket, io, db);
+	});
+
 	const port = process.env.PORT || '4000';
-	app.listen(port, () => console.log(`Server is listening on port ${port}`));
+	server.listen(port, () => console.log(`Server is listening on port ${port}`));
 });
